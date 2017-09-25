@@ -1,7 +1,6 @@
 package com.mycompany.app;
 
 import static spark.Spark.*;
-
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +8,7 @@ import java.util.Map;
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 import java.util.Arrays;
+import java.util.Scanner;
 public class App
 {
     public static boolean search(ArrayList<String> array,String input, int n) {
@@ -41,12 +41,12 @@ public class App
           {
             inputList.add(sc1.next().replaceAll("\\s",""));
           }
-          System.out.println(inputList);
+          //System.out.println(inputList);
 
 
           String input2 = req.queryParams("input2").replaceAll("\\s","");
           
-	  String input3 = req.queryParams("input3");
+	  String input3 = req.queryParams("input3").replaceAll("\\s","");
 	  int input3AsInt = Integer.parseInt(input3);
           boolean result = App.search(inputList, input2 , input3AsInt);
 
