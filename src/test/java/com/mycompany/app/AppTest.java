@@ -20,10 +20,10 @@ public class AppTest extends TestCase
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+   /* public void testApp()
     {
         assertTrue( true );
-    }
+    }*/
     public static void testFound() {
         ArrayList<String> array = new ArrayList<>(Arrays.asList("ycb", "ycb", "a", "asdf"));
         assertTrue(new App().search(array, "ycb",2));

@@ -39,7 +39,7 @@ public class App
           java.util.ArrayList<String> inputList = new java.util.ArrayList<>();
           while (sc1.hasNext())
           {
-            inputList.add(value);
+            inputList.add(sc1.next().replaceAll("\\s",""));
           }
           System.out.println(inputList);
 
