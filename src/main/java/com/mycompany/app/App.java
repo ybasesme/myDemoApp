@@ -6,20 +6,22 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 import java.util.Arrays;
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
-      System.out.println("inside search");
-      if (array == null) return false;
-
-      for (int elt : array) {
-        if (elt == e) return true;
-      }
-      return false;
+    public static boolean search(ArrayList<String> array,String input, int n) {
+	int counter = 0;
+	if(array==null)
+		return false;
+      	for (int i = 0; i < array.size(); i++) {
+		if(array.get(i).equalsIgnoreCase(input))
+			counter++;
+      	}
+      	if(counter == n)
+    		  return true;
+      	return false;
     }
 
     public static void main(String[] args) {
@@ -34,19 +36,19 @@ public class App
           String input1 = req.queryParams("input1");
           java.util.Scanner sc1 = new java.util.Scanner(input1);
           sc1.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
+          java.util.ArrayList<String> inputList = new java.util.ArrayList<>();
           while (sc1.hasNext())
           {
-            int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
             inputList.add(value);
           }
           System.out.println(inputList);
 
 
           String input2 = req.queryParams("input2").replaceAll("\\s","");
-          int input2AsInt = Integer.parseInt(input2);
-
-          boolean result = App.search(inputList, input2AsInt);
+          
+	  String input3 = req.queryParams("input3");
+	  int input3AsInt = Integer.parseInt(input3);
+          boolean result = App.search(inputList, input2 , input3AsInt);
 
          Map map = new HashMap();
           map.put("result", result);

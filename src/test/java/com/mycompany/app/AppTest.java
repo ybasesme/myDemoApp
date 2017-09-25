@@ -25,22 +25,27 @@ public class AppTest extends TestCase
         assertTrue( true );
     }
     public static void testFound() {
-        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        assertTrue(new App().search(array, 4));
+        ArrayList<String> array = new ArrayList<>(Arrays.asList("ycb", "ycb", "a", "asdf"));
+        assertTrue(new App().search(array, "ycb",2));
       }
 
       public static void testNotFound() {
-        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        assertFalse(new App().search(array, 5));
+        ArrayList<String> array = new ArrayList<>(Arrays.asList("ycb", "ycb", "a", "asdf"));
+        assertFalse(new App().search(array, "ycb",1));
       }
 
       public static void testEmptyArray() {
-        ArrayList<Integer> array = new ArrayList<>();
-        assertFalse(new App().search(array, 1));
+        ArrayList<String> array = new ArrayList<>();
+        assertFalse(new App().search(array, "ycb",1));
       }
 
       public static void testNull() {
-        assertFalse(new App().search(null, 1));
+        assertFalse(new App().search(null, "ycb",1));
+      }
+
+      public static void testFoundSame() {
+        ArrayList<String> array = new ArrayList<>(Arrays.asList("ycb", "ycb", "ycb", "ycb"));
+        assertTrue(new App().search(array, "ycb",4));
       }
 
 }
